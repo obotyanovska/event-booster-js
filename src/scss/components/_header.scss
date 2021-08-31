@@ -1,0 +1,251 @@
+.header {
+  background-image: url(./../images/background-header-mobile.jpg);
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: url(./../images/background-body-tablet@2x.jpg);
+  }
+
+  @media screen and (min-device-pixel-ratio: 3),
+    screen and (min-resolution: 288dpi),
+    screen and (min-resolution: 3dppx) {
+    background-image: url(./../images/background-header-mobile@3x.jpg);
+  }
+
+  @include breakpoint(tablet) {
+    background-image: url(./../images/background-header-tablet.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(./../images/background-header-tablet@2x.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: url(./../images/background-header-tablet@3x.jpg);
+    }
+  }
+
+  @include breakpoint(desktop) {
+    background-image: url(./../images/background-header-desktop.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: url(./../images/background-header-desktop@2x.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+      screen and (min-resolution: 288dpi),
+      screen and (min-resolution: 3dppx) {
+      background-image: url(./../images/background-header-desktop@3x.jpg);
+    }
+  }
+}
+
+.header__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 107px;
+  height: 90px;
+  background-image: url(./../images/bg-logo-tablet.png);
+  background-size: cover;
+}
+
+.header__logo-icon {
+  margin-top: 23px;
+  margin-left: 25px;
+}
+
+.header__heading {
+  width: 212px;
+  padding-top: 78px;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  color: $accent;
+}
+
+.header__form {
+  /* для інпута пошуку й лупи */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0px 112px;
+
+  @include breakpoint(tablet) {
+    flex-direction: row;
+    padding: 27px 0px 183px;
+  }
+
+  @include breakpoint(desktop) {
+    padding: 52px 0px 192px;
+  }
+}
+
+.search-form__label {
+  // width: 270px;
+  // height: 40px;
+  position: relative;
+
+  @include breakpoint(non-tablet) {
+    margin-bottom: 25px;
+  }
+
+  @include breakpoint(tablet) {
+    margin-right: 30px;
+  }
+}
+
+.search-form__input {
+  width: 270px;
+  height: 40px;
+  padding-left: 30px;
+  position: relative;
+  background-color: $input-bg;
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: transparent;
+  color: $white;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 0px 10px 3px $accent;
+    color: $white;
+    background-color: $accent;
+  }
+}
+
+.search-form__input::placeholder {
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: 20px; /*НЕ ЗМІНЮВАТИ!!! Тут має бути висота інпута*/
+  color: $grey;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  .search-form__label:hover &,
+  .search-form__label:focus & {
+    color: $white;
+  }
+}
+
+.search-form__icon {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  display: block;
+  fill: $grey;
+  z-index: 100;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @include breakpoint(tablet) {
+    top: 38px;
+  }
+  @include breakpoint(desktop) {
+    top: 62px;
+  }
+  .search-form__label:hover &,
+  .search-form__label:focus & {
+    fill: $white;
+  }
+}
+
+.search-form__countries {
+  width: 270px;
+  height: 40px;
+  background-color: $input-bg;
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding-left: 30px;
+  border: transparent;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  color: $white;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 0px 10px 3px $accent;
+    color: $white;
+    background-color: $accent;
+  }
+}
+
+.selected-country {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: $grey;
+  padding: 10px 30px;
+}
+
+/* приховуємо стрілку випадаючого списку */
+select {
+  -o-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* задаємо кольори елементів випадаючого списку */
+option {
+  color: $black;
+  background-color: $white;
+}
+
+.no-result-container {
+  max-width: 600px;
+  min-height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-image: url(./../images/black-cat.gif);
+}
+
+.resut-text {
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.1;
+  color: $accent;
+  text-shadow: 0 0 10px azure, 0 0 20px $modal-btn, 0 0 40px rgb(226, 14, 226),
+    0 0 80px rgb(63, 63, 194);
+  color: azure;
+  text-align: center;
+  padding: 10px;
+  @include breakpoint(tablet) {
+    font-weight: 600;
+    font-size: 26px;
+    padding: 20px;
+  }
+  @include breakpoint(desktop) {
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.21;
+    padding: 30px;
+  }
+}

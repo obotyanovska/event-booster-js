@@ -4,10 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Webpack Starter Kit</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Bungee+Shade&family=Montserrat:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <title>Event booster</title>
   </head>
 
   <body>
-    
+    <header class="header">
+      <div class="header__container _container">
+        <a class="header__logo" src="#">
+          <svg class="header__logo-icon" width="60" height="30">
+            <use href="./images/symbol-defs.svg#icon-logo"/>
+          </svg>
+        </a>
+        <h1 class="header__heading">FIND BEST EVENTS AROUND THE WORLD</h1>
+        
+        <form class="header__form search-form" autocomplete="off">
+          <label class="search-form__label">
+            <input class="search-form__input" type="text" placeholder="Start searching" name="search" />
+            <svg class="search-form__icon" width="12" height="12">
+              <use href="./images/symbol-defs.svg#icon-search"/>
+            </svg>
+          </label>
+          <select class="search-form__countries selected-country" name="country" placeholder="Choose country">
+            <option selected disabled>Choose country</option>
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="DK">Denmark</option>
+            <option value="AU">Australia</option>
+            <option value="GB">Great Britain</option>
+            <option value="DE">Germany</option>
+            <option value="MX">Mexico</option>
+            <option value="NL">Netherlands</option>
+            <option value="CH">Switzerland</option>
+            <option value="ES">Spain</option>
+          </select>
+        </form>
+      </div>
+    </header>
   </body>
 </html>

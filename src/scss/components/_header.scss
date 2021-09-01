@@ -1,7 +1,8 @@
 .header {
+  padding: 78px 0 52px 0;
   background-image: url(./../images/background-header-mobile.jpg);
   background-size: cover;
-  background-position: bottom center;
+  background-position: center center;
   background-repeat: no-repeat;
 
   @media screen and (min-device-pixel-ratio: 2),
@@ -17,6 +18,7 @@
   }
 
   @include breakpoint(tablet) {
+    padding: 40px 0 123px 0;
     background-image: url(./../images/background-header-tablet.jpg);
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -33,6 +35,7 @@
   }
 
   @include breakpoint(desktop) {
+    padding: 40px 0 133px 0;
     background-image: url(./../images/background-header-desktop.jpg);
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -61,18 +64,41 @@
   left: 0;
   width: 107px;
   height: 90px;
-  background-image: url(./../images/bg-logo-tablet.png);
+  background-image: url(./../images/bg-logo-mobile.png);
   background-size: cover;
+
+  @include breakpoint(tablet) {
+    width: 180px;
+    height: 151px;
+    background-image: url(./../images/bg-logo-tablet.png);
+  }
+
+  @include breakpoint(desktop) {
+    width: 239px;
+    height: 201px;
+    background-image: url(./../images/bg-logo-desktop.png);
+  }
 }
 
 .header__logo-icon {
   margin-top: 23px;
   margin-left: 25px;
+
+  @include breakpoint(tablet) {
+    width: 100px;
+    height: 50px;
+    margin-top: 40px;
+    margin-left: 40px;
+  }
+
+  @include breakpoint(tablet) {
+    width: 136px;
+    height: 68px;
+  }
 }
 
 .header__heading {
   width: 212px;
-  padding-top: 78px;
   font-weight: 900;
   font-style: normal;
   font-size: 18px;
@@ -80,6 +106,16 @@
   text-transform: uppercase;
   text-align: center;
   color: $accent;
+
+  @include breakpoint(tablet) {
+    width: 353px;
+    font-size: 30px;
+  }
+
+  @include breakpoint(desktop) {
+    width: 590px;
+    font-size: 50px;
+  }
 }
 
 .header__form {
@@ -87,21 +123,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 25px 0px 112px;
+  padding: 25px 0 0;
 
   @include breakpoint(tablet) {
     flex-direction: row;
-    padding: 27px 0px 183px;
+    padding: 27px 0 0;
   }
 
   @include breakpoint(desktop) {
-    padding: 52px 0px 192px;
+    padding: 52px 0 0;
   }
 }
 
 .search-form__label {
-  // width: 270px;
-  // height: 40px;
   position: relative;
 
   @include breakpoint(non-tablet) {
@@ -142,27 +176,29 @@
   line-height: 20px; /*НЕ ЗМІНЮВАТИ!!! Тут має бути висота інпута*/
   color: $grey;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   .search-form__label:hover &,
   .search-form__label:focus & {
     color: $white;
   }
 }
 
-.search-form__icon {
+.search-form__btn {
   position: absolute;
   top: 50%;
-  right: 30px;
+  right: 20px;
   transform: translateY(-50%);
+  padding: 7px 10px;
   display: block;
+  background-color: transparent;
+  border: none;
+}
+
+.search-form__icon {
   fill: $grey;
   z-index: 100;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  @include breakpoint(tablet) {
-    top: 38px;
-  }
-  @include breakpoint(desktop) {
-    top: 62px;
-  }
+
   .search-form__label:hover &,
   .search-form__label:focus & {
     fill: $white;
@@ -211,8 +247,8 @@ select {
 
 /* задаємо кольори елементів випадаючого списку */
 option {
-  color: $black;
-  background-color: $white;
+  color: $white;
+  background-color: $black;
 }
 
 .no-result-container {
@@ -227,25 +263,25 @@ option {
   background-image: url(./../images/black-cat.gif);
 }
 
-.resut-text {
-  font-style: normal;
-  font-size: 16px;
-  line-height: 1.1;
-  color: $accent;
-  text-shadow: 0 0 10px azure, 0 0 20px $modal-btn, 0 0 40px rgb(226, 14, 226),
-    0 0 80px rgb(63, 63, 194);
-  color: azure;
-  text-align: center;
-  padding: 10px;
-  @include breakpoint(tablet) {
-    font-weight: 600;
-    font-size: 26px;
-    padding: 20px;
-  }
-  @include breakpoint(desktop) {
-    font-weight: 800;
-    font-size: 40px;
-    line-height: 1.21;
-    padding: 30px;
-  }
-}
+// .resut-text {
+//   font-style: normal;
+//   font-size: 16px;
+//   line-height: 1.1;
+//   color: $accent;
+//   text-shadow: 0 0 10px azure, 0 0 20px $modal-btn, 0 0 40px rgb(226, 14, 226),
+//     0 0 80px rgb(63, 63, 194);
+//   color: azure;
+//   text-align: center;
+//   padding: 10px;
+//   @include breakpoint(tablet) {
+//     font-weight: 600;
+//     font-size: 26px;
+//     padding: 20px;
+//   }
+//   @include breakpoint(desktop) {
+//     font-weight: 800;
+//     font-size: 40px;
+//     line-height: 1.21;
+//     padding: 30px;
+//   }
+// }

@@ -59,18 +59,19 @@ img {
   max-width: 100%;
   margin: 0 auto;
 
-  @media screen and (min-width: $mobile) {
-    width: 320px;
-    padding: 0 15px;
+  @include breakpoint(mobile) {
+    width: $mobile;
   }
 
-  @media screen and (min-width: $tablet) {
-    width: 768px;
-    padding: 0 73px;
+  @include breakpoint(tablet) {
+    width: $tablet;
+    padding-left: 86px;
+    padding-right: 87px;
   }
 
-  @media screen and (min-width: $desktop) {
-    width: 1200px;
-    padding: 0 161px;
+  @include breakpoint(desktop) {
+    width: $desktop;
+    padding-left: 115px;
+    padding-right: 115px;
   }
 }

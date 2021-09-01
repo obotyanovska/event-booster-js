@@ -1,0 +1,13 @@
+<ul class='events-list'>
+  {{#each this}}  
+  <li class='events-list__item event-card' data-id={{id}}>
+    <div class='event-card__thumb'>
+      <img class='event-card__img' src={{posterUrl}} alt={{name}} />
+    </div>
+    <h2 class='event-card__title'>{{name}}</h2>
+    <p class='event-card__date'>{{dates.start.localDate}}</p>
+    <p class='event-card__location'>{{_embedded.venues.0.name}}</p>
+    <button class="event-card__button">Add</button>
+  </li>
+  {{/each}}
+</ul>

@@ -1,6 +1,10 @@
 @import './utils/variables';
 @import './utils/breakpoints';
+@import './utils/mixins';
 @import './base/common';
 @import './utils/mixins';
 
 @import './components/header';
+@import './components/page-body';
+@import './components/events-list';
+@import './components/event-card';

@@ -21,14 +21,16 @@
         </a>
         <h1 class="header__heading">FIND BEST EVENTS AROUND THE WORLD</h1>
         
-        <form class="header__form search-form" autocomplete="off">
+        <form class="header__form search-form js-form" autocomplete="off">
           <label class="search-form__label">
-            <input class="search-form__input" type="text" placeholder="Start searching" name="search" />
-            <svg class="search-form__icon" width="12" height="12">
-              <use href="./images/symbol-defs.svg#icon-search"/>
-            </svg>
+            <input class="search-form__input js-input" type="text" placeholder="Start searching" name="search" />
+            <button class="search-form__btn js-input-btn" type="submit">
+              <svg class="search-form__icon" width="12" height="12">
+                <use href="./images/symbol-defs.svg#icon-search" />
+              </svg>
+            </button>
           </label>
-          <select class="search-form__countries selected-country" name="country" placeholder="Choose country">
+          <select class="search-form__countries selected-country js-select" name="country" placeholder="Choose country">
             <option selected disabled>Choose country</option>
             <option value="US">United States</option>
             <option value="CA">Canada</option>
@@ -44,5 +46,57 @@
         </form>
       </div>
     </header>
+    <main class="page-body _container">
+      <ul class="events-list">
+        <li class="events-list__item event-card">
+          <div class="event-card__thumb">
+            <img class="event-card__img" src="./images/cat3.jpeg"  />
+          </div>
+          <h2 class="event-card__title">Festival</h2>
+          <p class="event-card__date">September, 12, 2021</p>
+          <p class="event-card__location">Kyiv, Ukraine</p> 
+        </li>
+        <li class="events-list__item event-card">
+          <div class="event-card__thumb">
+            <img class="event-card__img" src="./images/cat3.jpeg" />
+          </div>
+          <h2 class="event-card__title">Festival</h2>
+          <p class="event-card__date">September, 12, 2021</p>
+          <p class="event-card__location">Kyiv, Ukraine</p>   
+        </li>
+        <li class="events-list__item event-card">
+          <div class="event-card__thumb">
+            <img class="event-card__img" src="./images/cat3.jpeg" />
+          </div>
+          <h2 class="event-card__title">Festival</h2>
+          <p class="event-card__date">September, 12, 2021</p>
+          <p class="event-card__location">Kyiv, Ukraine</p>
+        </li>
+        <li class="events-list__item event-card">
+          <div class="event-card__thumb">
+            <img class="event-card__img" src="./images/cat3.jpeg" />
+          </div>
+          <h2 class="event-card__title">Festival</h2>
+          <p class="event-card__date">September, 12, 2021</p>
+          <p class="event-card__location">Kyiv, Ukraine</p>
+        </li>
+        <li class="events-list__item event-card">
+          <div class="event-card__thumb">
+            <img class="event-card__img" src="./images/cat3.jpeg" />
+          </div>
+          <h2 class="event-card__title">Festival</h2>
+          <p class="event-card__date">September, 12, 2021</p>
+          <p class="event-card__location">Kyiv, Ukraine</p>
+        </li>
+        <li class="events-list__item event-card">
+          <div class="event-card__thumb">
+            <img class="event-card__img" src="./images/cat3.jpeg" />
+          </div>
+          <h2 class="event-card__title">Festival</h2>
+          <p class="event-card__date">September, 12, 2021</p>
+          <p class="event-card__location">Kyiv, Ukraine</p>
+        </li>
+      </ul>
+    </main>
   </body>
 </html>

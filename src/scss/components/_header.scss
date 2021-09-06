@@ -1,53 +1,107 @@
 .header {
-  padding: 78px 0 52px 0;
-  background-image: url(./../images/background-header-mobile.jpg);
+  padding: 78px 0 38px 0;
+  background-image: linear-gradient(
+      to top,
+      rgba(13, 13, 13, 0),
+      rgba(14, 14, 14, 0.8)
+    ),
+    linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+    url(./../images/header/header-bcg-mobile.jpg);
   background-size: cover;
-  background-position: center center;
+  background-position: center bottom;
   background-repeat: no-repeat;
 
   @media screen and (min-device-pixel-ratio: 2),
     screen and (min-resolution: 192dpi),
     screen and (min-resolution: 2dppx) {
-    background-image: url(./../images/background-body-tablet@2x.jpg);
+    background-image: linear-gradient(
+        to top,
+        rgba(13, 13, 13, 0),
+        rgba(14, 14, 14, 0.8)
+      ),
+      linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+      url(./../images/header/header-bcg-mobile@2x.jpg);
   }
 
   @media screen and (min-device-pixel-ratio: 3),
     screen and (min-resolution: 288dpi),
     screen and (min-resolution: 3dppx) {
-    background-image: url(./../images/background-header-mobile@3x.jpg);
+    background-image: linear-gradient(
+        to top,
+        rgba(13, 13, 13, 0),
+        rgba(14, 14, 14, 0.8)
+      ),
+      linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+      url(./../images/header/header-bcg-mobile@3x.jpg);
   }
 
   @include breakpoint(tablet) {
     padding: 40px 0 123px 0;
-    background-image: url(./../images/background-header-tablet.jpg);
+    background-image: linear-gradient(
+        to top,
+        rgba(13, 13, 13, 0),
+        rgba(14, 14, 14, 0.8)
+      ),
+      linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+      url(./../images/header/header-bcg-tablet.jpg);
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url(./../images/background-header-tablet@2x.jpg);
+      background-image: linear-gradient(
+          to top,
+          rgba(13, 13, 13, 0),
+          rgba(14, 14, 14, 0.8)
+        ),
+        linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+        url(./../images/header/header-bcg-tablet@2x.jpg);
     }
 
     @media screen and (min-device-pixel-ratio: 3),
       screen and (min-resolution: 288dpi),
       screen and (min-resolution: 3dppx) {
-      background-image: url(./../images/background-header-tablet@3x.jpg);
+      background-image: linear-gradient(
+          to top,
+          rgba(13, 13, 13, 0),
+          rgba(14, 14, 14, 0.8)
+        ),
+        linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+        url(./../images/header/header-bcg-tablet@3x.jpg);
     }
   }
 
   @include breakpoint(desktop) {
     padding: 40px 0 133px 0;
-    background-image: url(./../images/background-header-desktop.jpg);
+    background-image: linear-gradient(
+        to top,
+        rgba(13, 13, 13, 0),
+        rgba(14, 14, 14, 0.8)
+      ),
+      linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+      url(./../images/header/header-bcg-desktop.jpg);
 
     @media screen and (min-device-pixel-ratio: 2),
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
-      background-image: url(./../images/background-header-desktop@2x.jpg);
+      background-image: linear-gradient(
+          to top,
+          rgba(13, 13, 13, 0),
+          rgba(14, 14, 14, 0.8)
+        ),
+        linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+        url(./../images/header/header-bcg-desktop@2x.jpg);
     }
 
     @media screen and (min-device-pixel-ratio: 3),
       screen and (min-resolution: 288dpi),
       screen and (min-resolution: 3dppx) {
-      background-image: url(./../images/background-header-desktop@3x.jpg);
+      background-image: linear-gradient(
+          to top,
+          rgba(13, 13, 13, 0),
+          rgba(14, 14, 14, 0.8)
+        ),
+        linear-gradient(to right, rgba(11, 11, 11, 0.5), rgba(11, 11, 11, 0.5)),
+        url(./../images/header/header-bcg-desktop@3x.jpg);
     }
   }
 }
@@ -64,23 +118,25 @@
   left: 0;
   width: 107px;
   height: 90px;
-  background-image: url(./../images/bg-logo-mobile.png);
+  background-image: url(./../images/header/logo-bcg-mobile.png);
   background-size: cover;
 
   @include breakpoint(tablet) {
     width: 180px;
     height: 151px;
-    background-image: url(./../images/bg-logo-tablet.png);
+    background-image: url(./../images/header/logo-bcg-tablet.png);
   }
 
   @include breakpoint(desktop) {
     width: 239px;
     height: 201px;
-    background-image: url(./../images/bg-logo-desktop.png);
+    background-image: url(./../images/header/logo-bcg-desktop.png);
   }
 }
 
 .header__logo-icon {
+  width: 60px;
+  height: 30px;
   margin-top: 23px;
   margin-left: 25px;
 
@@ -91,197 +147,26 @@
     margin-left: 40px;
   }
 
-  @include breakpoint(tablet) {
+  @include breakpoint(desktop) {
     width: 136px;
     height: 68px;
   }
 }
 
 .header__heading {
-  width: 212px;
-  font-weight: 900;
-  font-style: normal;
   font-size: 18px;
+  font-weight: 900;
   line-height: 1.2;
   text-transform: uppercase;
   text-align: center;
   color: $accent;
 
   @include breakpoint(tablet) {
-    width: 353px;
+    max-width: 75%;
     font-size: 30px;
   }
 
   @include breakpoint(desktop) {
-    width: 590px;
     font-size: 50px;
   }
 }
-
-.header__form {
-  /* для інпута пошуку й лупи */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 25px 0 0;
-
-  @include breakpoint(tablet) {
-    flex-direction: row;
-    padding: 27px 0 0;
-  }
-
-  @include breakpoint(desktop) {
-    padding: 52px 0 0;
-  }
-}
-
-.search-form__label {
-  position: relative;
-
-  @include breakpoint(non-tablet) {
-    margin-bottom: 25px;
-  }
-
-  @include breakpoint(tablet) {
-    margin-right: 30px;
-  }
-}
-
-.search-form__input {
-  width: 270px;
-  height: 40px;
-  padding-left: 30px;
-  position: relative;
-  background-color: $input-bg;
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  border: transparent;
-  color: $white;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 16px;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    box-shadow: 0px 0px 10px 3px $accent;
-    color: $white;
-    background-color: $accent;
-  }
-}
-
-.search-form__input::placeholder {
-  font-weight: inherit;
-  font-size: inherit;
-  line-height: 20px; /*НЕ ЗМІНЮВАТИ!!! Тут має бути висота інпута*/
-  color: $grey;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  .search-form__label:hover &,
-  .search-form__label:focus & {
-    color: $white;
-  }
-}
-
-.search-form__btn {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  padding: 7px 10px;
-  display: block;
-  background-color: transparent;
-  border: none;
-}
-
-.search-form__icon {
-  fill: $grey;
-  z-index: 100;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  .search-form__label:hover &,
-  .search-form__label:focus & {
-    fill: $white;
-  }
-}
-
-.search-form__countries {
-  width: 270px;
-  height: 40px;
-  background-color: $input-bg;
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding-left: 30px;
-  border: transparent;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 16px;
-  color: $white;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    box-shadow: 0px 0px 10px 3px $accent;
-    color: $white;
-    background-color: $accent;
-  }
-}
-
-.selected-country {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
-  color: $grey;
-  padding: 10px 30px;
-}
-
-/* приховуємо стрілку випадаючого списку */
-select {
-  -o-appearance: none;
-  -ms-appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-/* задаємо кольори елементів випадаючого списку */
-option {
-  color: $white;
-  background-color: $black;
-}
-
-.no-result-container {
-  max-width: 600px;
-  min-height: 450px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-image: url(./../images/black-cat.gif);
-}
-
-// .resut-text {
-//   font-style: normal;
-//   font-size: 16px;
-//   line-height: 1.1;
-//   color: $accent;
-//   text-shadow: 0 0 10px azure, 0 0 20px $modal-btn, 0 0 40px rgb(226, 14, 226),
-//     0 0 80px rgb(63, 63, 194);
-//   color: azure;
-//   text-align: center;
-//   padding: 10px;
-//   @include breakpoint(tablet) {
-//     font-weight: 600;
-//     font-size: 26px;
-//     padding: 20px;
-//   }
-//   @include breakpoint(desktop) {
-//     font-weight: 800;
-//     font-size: 40px;
-//     line-height: 1.21;
-//     padding: 30px;
-//   }
-// }

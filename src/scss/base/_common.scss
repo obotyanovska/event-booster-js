@@ -39,7 +39,7 @@ a {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
 }
@@ -60,18 +60,17 @@ img {
   margin: 0 auto;
 
   @include breakpoint(mobile) {
-    width: $mobile;
+    width: 290px;
+    padding: 0 10px;
   }
 
   @include breakpoint(tablet) {
-    width: $tablet;
-    padding-left: 86px;
-    padding-right: 87px;
+    width: 622px;
+    padding: 0 14px;
   }
 
   @include breakpoint(desktop) {
-    width: $desktop;
-    padding-left: 115px;
-    padding-right: 115px;
+    width: 958px;
+    padding: 0 14px;
   }
 }

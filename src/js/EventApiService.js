@@ -5,16 +5,15 @@ const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
 export default class EventApiService {
   constructor() {
     this.searchQuery = null;
+    this.countryCode = null;
     this.page = 0;
     this.size = 20;
     this.totalElements = null;
     this.totalPages = null;
   }
 
-  getEventsByKeyword() {
-    return fetch(
-      `${BASE_URL}events.json?page=${this.page}&keyword=${this.searchQuery}&apikey=${API_KEY}`,
-    )
+  goFetch(url) {
+    return fetch(url)
       .then(response => {
         if (!response.ok) {
           throw new Error();
@@ -36,25 +35,27 @@ export default class EventApiService {
       });
   }
 
+  getEventsByKeyword() {
+    return this.goFetch(
+      `${BASE_URL}events.json?page=${this.page}&keyword=${this.searchQuery}&apikey=${API_KEY}`,
+    );
+  }
+
+  getRandomEvents() {
+    return this.goFetch(
+      `${BASE_URL}events.json?size=20&page=${this.page}&sort=random&apikey=${API_KEY}`,
+    );
+  }
+
+  getEventsByCountry() {
+    return this.goFetch(
+      `${BASE_URL}events.json?size=20&page=${this.page}&countryCode=${this.countryCode}&apikey=${API_KEY}`,
+    );
+  }
+
   // getEventById() {
   //   return axios
   //     .get(`${BASE_URL}events.json?id=${id}&apikey=${API_KEY}`)
-  //     .then(resp => console.log(resp));
-  // }
-
-  // getEventsRandom() {
-  //   return axios
-  //     .get(
-  //       `${BASE_URL}events.json?size=20&page=${page}&sort=random&apikey=${API_KEY}`,
-  //     )
-  //     .then(resp => console.log(resp));
-  // }
-
-  // getEventsByCountry() {
-  //   return axios
-  //     .get(
-  //       `${BASE_URL}events.json?size=20&page=${page}&countryCode=${countryCode}&apikey=${API_KEY}`,
-  //     )
   //     .then(resp => console.log(resp));
   // }
 

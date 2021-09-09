@@ -1,0 +1,272 @@
+// body {
+//   overflow: hidden;
+// }
+
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $overlay;
+  opacity: 1;
+  overflow-y: scroll;
+  z-index: 100;
+  transition: opacity $timing-function;
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 272px;
+  max-width: 100%;
+  height: 915px;
+  max-height: 100%;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: transform $timing-function;
+
+  @include breakpoint(tablet) {
+    width: 595px;
+    height: 831px;
+  }
+
+  @include breakpoint(desktop) {
+    width: 930px;
+    height: 1023px;
+  }
+
+  .is-hidden & {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.modal__wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: $modal-bg;
+  border-radius: 150px 0px;
+
+  @include breakpoint(tablet) {
+    border-radius: 300px 0px;
+  }
+}
+
+.modal__btn-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  border: none;
+  padding: 0;
+  background-color: $modal-bg;
+  cursor: pointer;
+
+  @include breakpoint(desktop) {
+    top: 30px;
+    right: 30px;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.modal__icon-close {
+  display: block;
+  background-size: contain;
+  width: 17px;
+  height: 17px;
+  fill: $black;
+  transition: fill $timing-function;
+
+  &:hover,
+  &:focus {
+    fill: $modal-btn;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.modal__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 75px 10px 105px;
+
+  @include breakpoint(tablet) {
+    padding: 28px 0 56px;
+  }
+
+  @include breakpoint(desktop) {
+    padding: 62px 0;
+  }
+}
+
+.event-info__label {
+  width: 102px;
+  height: 102px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  @include breakpoint(tablet) {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 43px;
+  }
+
+  @include breakpoint(desktop) {
+    width: 132px;
+    height: 132px;
+    margin-bottom: 41px;
+  }
+}
+
+.event-info__content {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+
+  @include breakpoint(tablet) {
+    padding: 0 17px 0 50px;
+    margin-bottom: 43px;
+  }
+
+  @include breakpoint(desktop) {
+    padding: 0 30px;
+    margin-bottom: 45px;
+  }
+}
+
+.event-info__poster {
+  display: none;
+
+  @include breakpoint(tablet) {
+    display: block;
+    width: 233px;
+    height: 416px;
+    margin-right: 30px;
+  }
+
+  @include breakpoint(desktop) {
+    width: 360px;
+    height: 641px;
+    margin-right: 60px;
+  }
+}
+
+.event-info__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include breakpoint(tablet) {
+    align-items: flex-start;
+  }
+}
+
+.event-info__title {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: $accent;
+  text-transform: uppercase;
+
+  @include breakpoint(desktop) {
+    margin-bottom: 7px;
+    font-size: 24px;
+  }
+}
+
+.event-info__text {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: $black;
+  text-align: center;
+
+  .event-info__price & {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(tablet) {
+    text-align: start;
+  }
+
+  @include breakpoint(desktop) {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+}
+
+.event-info__price-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+
+    @include breakpoint(desktop) {
+      margin-bottom: 31px;
+    }
+  }
+
+  @include breakpoint(tablet) {
+    align-items: flex-start;
+  }
+}
+
+.event-info__price {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  @include breakpoint(desktop) {
+    margin-bottom: 20px;
+  }
+}
+
+.event-info__icon-barcode {
+  margin-right: 13px;
+}
+
+.event-info__btn {
+  @extend %btn;
+  width: 145px;
+}
+
+.event-info__btn-more {
+  @extend %btn;
+  width: 230px;
+  padding: 10px 0;
+}
+
+// .modal::-webkit-scrollbar-track {
+//   -webkit-box-shadow: inset 0 0 6px transparent;
+//   background-color: transparent;
+// }
+
+// .modal::-webkit-scrollbar {
+//   width: 10px;
+//   background-color: transparent;
+// }
+
+// .modal::-webkit-scrollbar-thumb {
+//   background-color: #dc56c5;
+//   border: 2px solid transparent;
+// }

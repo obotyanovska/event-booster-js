@@ -3,9 +3,11 @@
 @import './utils/mixins';
 @import './base/common';
 @import './utils/mixins';
+@import './utils/placeholders';
 
 @import './components/header';
 @import './components/search-form';
 @import './components/page-body';
 @import './components/event-card';
 @import './components/footer';
+@import './components/modal';

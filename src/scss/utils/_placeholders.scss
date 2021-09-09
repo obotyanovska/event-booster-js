@@ -1,0 +1,23 @@
+%btn {
+  display: inline-block;
+  min-width: 100px;
+  padding: 10px 5px;
+  border: 1px solid $modal-btn;
+  border-radius: 5px;
+  background-color: $white;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: $modal-btn;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color $timing-function, color $timing-function;
+
+  &:hover,
+  &:focus {
+    background-color: $modal-btn;
+    color: $white;
+  }
+}

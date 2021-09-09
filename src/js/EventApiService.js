@@ -10,6 +10,7 @@ export default class EventApiService {
     this.size = 20;
     this.totalElements = null;
     this.totalPages = null;
+    this.id = null;
   }
 
   goFetch(url) {
@@ -53,11 +54,11 @@ export default class EventApiService {
     );
   }
 
-  // getEventById() {
-  //   return axios
-  //     .get(`${BASE_URL}events.json?id=${id}&apikey=${API_KEY}`)
-  //     .then(resp => console.log(resp));
-  // }
+  getEventById() {
+    return this.goFetch(
+      `${BASE_URL}events.json?id=${this.id}&apikey=${API_KEY}`,
+    );
+  }
 
   normalizeEventObj(obj) {
     const image = obj.images

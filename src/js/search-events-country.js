@@ -4,7 +4,7 @@ import { renderEventsList } from './render-events-list';
 
 const eventApiService = new EventApiService();
 
-refs.searchForm.addEventListener('change', onSearchByCountry);
+refs.formSelectCountry.addEventListener('change', onSearchByCountry);
 
 function onSearchByCountry(e) {
   const searchCountry = e.target.value;

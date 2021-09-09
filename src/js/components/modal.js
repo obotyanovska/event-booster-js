@@ -1,6 +1,6 @@
-import EventApiService from './../EventApiService';
-import { refs } from './../refs';
-import { renderModal } from '../render-modal';
+import EventApiService from './../service/EventApiService';
+import { refs } from './../utils/refs';
+import { renderModal } from './render-modal';
 import svg from './../../images/symbol-defs.svg';
 
 const eventApiService = new EventApiService();

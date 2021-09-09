@@ -1,6 +1,6 @@
-import EventApiService from './EventApiService';
-import { refs } from './refs';
-import { renderEventsList } from './render-events-list';
+import EventApiService from './service/EventApiService';
+import { refs } from './utils/refs';
+import { renderEventsList } from './components/render-events-list';
 
 const eventApiService = new EventApiService();
 

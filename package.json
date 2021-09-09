@@ -53,6 +53,8 @@
     "core-js": "^3.6.5",
     "handlebars": "^4.7.6",
     "lodash.debounce": "^4.0.8",
-    "modern-normalize": "^1.1.0"
+    "modern-normalize": "^1.1.0",
+    "pkg": "^5.3.1",
+    "smooth-scrollbar": "^8.6.3"
   }
 }

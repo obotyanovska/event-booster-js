@@ -8,4 +8,5 @@ export const refs = {
 
   backdrop: document.querySelector('.backdrop'),
   modalBtnClose: document.querySelector('[data-model-close]'),
+  spinner: document.querySelector('.loader-spinner'),
 };

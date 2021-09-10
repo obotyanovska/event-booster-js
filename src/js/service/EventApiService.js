@@ -36,9 +36,9 @@ export default class EventApiService {
       });
   }
 
-  getEventsByKeyword() {
+  getEventsByKeyWord() {
     return this.goFetch(
-      `${BASE_URL}events.json?page=${this.page}&keyword=${this.searchQuery}&apikey=${API_KEY}`,
+      `${BASE_URL}events.json?size=200&keyword=${this.searchQuery}&apikey=${API_KEY}`,
     );
   }
 

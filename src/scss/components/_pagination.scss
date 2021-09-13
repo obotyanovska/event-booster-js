@@ -1,0 +1,40 @@
+.tui-pagination {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0 33px 0;
+}
+
+.tui-page-btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+  text-decoration: none;
+  border: solid 1px transparent;
+  @include breakpoint(non-tablet) {
+    font-size: 14px;
+  }
+}
+
+a[data-index],
+strong[data-index] {
+  margin-right: 5px;
+}
+
+.tui-is-selected {
+  color: #dc56c5;
+  border-color: #dc56c5;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.tui-first,
+.tui-prev,
+.tui-next,
+.tui-last {
+  display: none;
+}

@@ -1,11 +1,12 @@
 #go-top {
   position: fixed;
-  bottom: 80px;
-  right: 20px;
+  bottom: 45px;
+  right: 30px;
   @include breakpoint(tablet) {
     bottom: 32px;
     right: 60px;
   }
+
   cursor: pointer;
   display: none;
   width: 50px;

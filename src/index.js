@@ -7,3 +7,4 @@ import './js/search-events-country';
 import './js/components/go-top';
 
 import './js/components/modal';
+import './js/components/pagination';

@@ -1,4 +1,3 @@
-const axios = require('axios');
 const API_KEY = 'soKuDyMtrw2ZES78RDbbnvyZwVVeZjGa';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
 
@@ -38,19 +37,19 @@ export default class EventApiService {
 
   getEventsByKeyWord() {
     return this.goFetch(
-      `${BASE_URL}events.json?size=200&keyword=${this.searchQuery}&apikey=${API_KEY}`,
+      `${BASE_URL}events.json?size=${this.size}&keyword=${this.searchQuery}&apikey=${API_KEY}`,
     );
   }
 
   getRandomEvents() {
     return this.goFetch(
-      `${BASE_URL}events.json?size=20&page=${this.page}&sort=random&apikey=${API_KEY}`,
+      `${BASE_URL}events.json?size=${this.size}&page=${this.page}&sort=random&apikey=${API_KEY}`,
     );
   }
 
   getEventsByCountry() {
     return this.goFetch(
-      `${BASE_URL}events.json?size=20&page=${this.page}&countryCode=${this.countryCode}&apikey=${API_KEY}`,
+      `${BASE_URL}events.json?size=${this.size}&page=${this.page}&countryCode=${this.countryCode}&apikey=${API_KEY}`,
     );
   }
 

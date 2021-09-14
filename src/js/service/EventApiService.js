@@ -1,3 +1,5 @@
+import { notificationError } from '../components/notification';
+
 const API_KEY = 'soKuDyMtrw2ZES78RDbbnvyZwVVeZjGa';
 const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
 
@@ -15,9 +17,9 @@ export default class EventApiService {
   goFetch(url) {
     return fetch(url)
       .then(response => {
-        if (!response.ok) {
-          throw new Error();
-        }
+        // if (!response.ok) {
+        //   throw new Error();
+        // }
         return response.json();
       })
       .then(({ page, _embedded }) => {
@@ -31,7 +33,7 @@ export default class EventApiService {
         return [];
       })
       .catch(error => {
-        console.log(error);
+        notificationError('Error', `${error}`, '#ff2b3d');
       });
   }
 

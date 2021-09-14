@@ -7,6 +7,12 @@
 
 @import './components/header';
 @import './components/search-form';
+@import '@glidejs/glide/src/assets/sass/glide.core';
+
+// Optional Theme Stylesheet
+// @import '@glidejs/glide/src/assets/sass/glide.theme';
+@import './components/slider';
+@import './components/category-filter';
 @import './components/page-body';
 @import './components/event-card';
 @import './components/pagination';

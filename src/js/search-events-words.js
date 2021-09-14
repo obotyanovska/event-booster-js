@@ -4,6 +4,7 @@ import { options } from './components/pagination';
 import { refs } from './utils/refs';
 import { renderEventsList } from './components/render-events-list';
 import { startSpinner, stopSpinner } from './components/spinner';
+import { notificationError } from './components/notification';
 
 const eventApiService = new EventApiService();
 
@@ -39,7 +40,10 @@ function onSearchFormSubmit(e) {
         });
       });
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      notificationError('Error', `${error}`, '#ff2b3d');
+      stopSpinner();
+    });
   //
   // .finally(refs.searchForm.reset());
   // });

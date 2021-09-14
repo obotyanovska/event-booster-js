@@ -16,6 +16,9 @@ function startPageRender() {
     .then(data => {
       renderEventsList(data);
       stopSpinner();
+      // // console.log(data);
+      // console.log(data.map(item => item.classifications[0].segment.name));
+      // // console.log(data.map(item => item.classifications[0].segment.segmentId));
       return data;
     })
     .then(data => {
@@ -32,5 +35,8 @@ function startPageRender() {
         });
       });
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      notificationError('Error', `${error}`, '#ff2b3d');
+      stopSpinner();
+    });
 }

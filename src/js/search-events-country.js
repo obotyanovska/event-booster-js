@@ -4,6 +4,7 @@ import { options } from './components/pagination';
 import { refs } from './utils/refs';
 import { renderEventsList } from './components/render-events-list';
 import { startSpinner, stopSpinner } from './components/spinner';
+import { notificationError } from './components/notification';
 
 const eventApiService = new EventApiService();
 
@@ -35,14 +36,8 @@ export default function onSearchByCountry(e) {
         });
       });
     })
-    .catch(error => console.log(error));
-  // if (savedEvents === null) {
-  //   eventApiService.getEventsByCountry().then(renderEventsList);
-  // } else {
-  //   const filteredByCountry = savedEvents.filter(
-  //     item => item.local === searchCountry,
-  //   );
-  //   console.log(filteredByCountry);
-  // renderEventsList(filteredByCountry);
-  // }
+    .catch(error => {
+      notificationError('Error', `${error}`, '#ff2b3d');
+      stopSpinner();
+    });
 }

@@ -8,10 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Bungee+Shade&family=Montserrat:wght@400;500;600;700;900&display=swap"
       rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
     <title>Event booster</title>
   </head>
 
@@ -29,12 +26,7 @@
           
           <form class="header__search-form search-form js-form" autocomplete="off">
             <label class="search-form__label">
-              <input class="search-form__input js-input" type="text" placeholder="Start searching" name="search" />
-              <button class="search-form__btn js-input-btn" type="submit">
-                <svg class="search-form__icon" width="12" height="12">
-                  <use href="./images/symbol-defs.svg#icon-search" />
-                </svg>
-              </button>
+              <input class="search-form__input js-input" type="text" placeholder="Start searching" name="search" />             
             </label>
             <select class="search-form__countries selected-country js-select" name="country" placeholder="Choose country">
               <option selected disabled>Choose country</option>
@@ -121,19 +113,69 @@
               <option value="AE">United Arab Emirates</option>
               <option value="UY">Uruguay</option>
               <option value="VE">Venezuela</option>
-            </select>           
+            </select>    
+            <button class="search-form__btn js-input-btn" type="submit">
+              <svg class="search-form__icon" width="12" height="12">
+                <use href="./images/symbol-defs.svg#icon-search" />
+              </svg>
+              Search
+            </button>
           </form>
+
         </div>
       </header>
 
-      <main class="page-body" >
-        <div class="page-body__container _container"></div> 
-        <div id="pagination" class="tui-pagination"></div>
-        <footer class="footer">
-          <div class="_container"> 
-            <p class="footer__text">© 2021 | All Rights Reserved | Developed with ♥ </p>
+      <main class="page-body " >
+        <div class="page-body__container _container">
+          <div class="wrap">
+            <div class="glide">
+              <div class="glide__track" data-glide-el="track">
+                <ul class="glide__slides">
+                  <li class="glide__slide">1</li>
+                  <li class="glide__slide">2</li>
+                  <li class="glide__slide">3</li>
+                </ul>
+              </div>
+              <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__btn glide__arrow glide__arrow--left back" data-glide-dir="<">prev
+                  <svg class="glide__btn-icon" width="15" height="15">
+                    <use href="./images/symbol-defs.svg#icon_arrow_back" />
+                  </svg>
+                </button>
+                <button class="glide__btn glide__arrow glide__arrow--right forward" data-glide-dir=">">next
+                  <svg class="glide__btn-icon" width="15" height="15">
+                    <use href="./images/symbol-defs.svg#icon_arrow_forward" />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
-        </footer>
+          
+          <div class="header__category-filter category-filter">
+            <ul class="category-filter__list">
+              <li class="category-filter__item">
+                <button class="category-filter__btn">Arts&Theatre</button>
+              </li>
+              <li class="category-filter__item">
+                <button class="category-filter__btn">Sports</button>
+              </li>
+              <li class="category-filter__item">
+                <button class="category-filter__btn">Music</button>
+              </li>
+              <li class="category-filter__item">
+                <button class="category-filter__btn">Miscellaneous</button>
+              </li>
+            </ul>
+          </div>
+          <div class="page-body__container _container"></div>
+          <div id="pagination" class="tui-pagination"></div>
+          <footer class="footer">
+            <div class="_container">
+              <p class="footer__text">© 2021 | All Rights Reserved | Developed with ♥ </p>
+            </div>
+          </footer>
+        </div>
+        
       </main>
     </div>
 

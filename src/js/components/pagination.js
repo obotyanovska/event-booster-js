@@ -1,4 +1,5 @@
 import Pagination from 'tui-pagination';
+import { refs } from './../utils/refs';
 
 export const options = {
   totalItems: 10,
@@ -25,4 +26,8 @@ export const options = {
       '<span class="tui-ico-ellip">...</span>' +
       '</a>',
   },
+};
+
+export const deletePagination = function () {
+  refs.paginationContainer.innerHTML = '';
 };

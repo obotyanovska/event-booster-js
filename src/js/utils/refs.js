@@ -4,7 +4,7 @@ export const refs = {
   formSelectCountry: document.querySelector('.js-select'),
   submitInput: document.querySelector('.js-input-btn'),
 
-  pageBody: document.querySelector('.page-body__events'),
+  pageBodyEvents: document.querySelector('.page-body__events'),
 
   backdrop: document.querySelector('.backdrop'),
   modalBtnClose: document.querySelector('[data-model-close]'),
@@ -12,4 +12,7 @@ export const refs = {
 
   slider: document.querySelector('.glide__slides'),
   categoryFilter: document.querySelector('.category-filter'),
+  paginationContainer: document.querySelector('#pagination'),
+
+  body: document.querySelector('body'),
 };

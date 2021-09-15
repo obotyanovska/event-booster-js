@@ -1,13 +1,12 @@
 import EventApiService from './service/EventApiService';
 import Pagination from 'tui-pagination';
-import { options } from './components/pagination';
+import { options, deletePagination } from './components/pagination';
 import { refs } from './utils/refs';
 import { renderEventsList } from './components/render-events-list';
 import { startSpinner, stopSpinner } from './components/spinner';
 import { notificationError } from './components/notification';
 import { loadFromLocalStorage } from './utils/local-storage';
-
-// const eventApiService = new EventApiService();
+import renderNoResults from './components/render-no-results';
 
 refs.categoryFilter.addEventListener('click', onFilterClick);
 
@@ -18,17 +17,23 @@ function onFilterClick(e) {
 
   const filter = e.target.dataset.name;
   const savedEvents = loadFromLocalStorage();
-  // console.log(savedEvents);
-  const filteredEvents = savedEvents.filter(
-    event =>
-      event.classifications !== undefined &&
-      event.classifications[0].segment.name === filter,
-  );
 
-  if (filteredEvents.length > 0) {
-    renderEventsList(filteredEvents);
+  const filteredEvents =
+    filter === 'All'
+      ? savedEvents
+      : savedEvents.filter(
+          event =>
+            event.classifications !== undefined &&
+            event.classifications[0].segment.name === filter,
+        );
+
+  if (filteredEvents.length < 1) {
+    renderNoResults();
+    // const totalItems = eventApiService.totalElements;
+    // deletePagination();
+    return;
   }
-
+  renderEventsList(filteredEvents);
   // console.log(filteredEvents);
   // const searchCountry = e.target.value;
   // eventApiService.countryCode = searchCountry;

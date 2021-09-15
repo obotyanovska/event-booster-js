@@ -4,6 +4,7 @@ import { options } from './components/pagination';
 import { renderEventsList } from './components/render-events-list';
 import { startSpinner, stopSpinner } from './components/spinner';
 import { saveToLocalStorage, clearLocalStorage } from './utils/local-storage';
+import { scrollToTop } from './utils/scrolling-func';
 
 const eventApiService = new EventApiService();
 
@@ -29,6 +30,7 @@ function startPageRender() {
         eventApiService.page = eventData.page - 1;
         eventApiService.getRandomEvents().then(data => {
           renderEventsList(data);
+          scrollToTop();
           stopSpinner();
           clearLocalStorage();
           saveToLocalStorage(data);

@@ -3,5 +3,5 @@ import { refs } from './../utils/refs';
 
 export function renderEventsList(events) {
   const eventsCards = eventsListTpl(events);
-  refs.pageBody.innerHTML = eventsCards;
+  refs.pageBodyEvents.innerHTML = eventsCards;
 }

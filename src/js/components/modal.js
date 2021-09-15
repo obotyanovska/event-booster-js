@@ -6,7 +6,7 @@ import { loadFromLocalStorage } from './../utils/local-storage';
 
 const eventApiService = new EventApiService();
 
-refs.pageBody.addEventListener('click', onEventOpenClick);
+refs.pageBodyEvents.addEventListener('click', onEventOpenClick);
 refs.backdrop.addEventListener('click', onBtnClose);
 refs.backdrop.addEventListener('click', onBackdropCloseClick);
 
@@ -24,11 +24,14 @@ function onEventOpenClick(e) {
 
 function onModalOpen(e) {
   refs.backdrop.classList.remove('is-hidden');
+  scrollToTop();
+  refs.body.classList.add('modal-open');
   window.addEventListener('keydown', onEscapePress);
 }
 
 function onModalClose(e) {
   refs.backdrop.classList.add('is-hidden');
+  refs.body.classList.remove('modal-open');
   window.removeEventListener('keydown', onEscapePress);
 }
 

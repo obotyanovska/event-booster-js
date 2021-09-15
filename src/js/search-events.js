@@ -1,11 +1,12 @@
 import EventApiService from './service/EventApiService';
 import Pagination from 'tui-pagination';
-import { options } from './components/pagination';
+import { options, deletePagination } from './components/pagination';
 import { refs } from './utils/refs';
 import { renderEventsList } from './components/render-events-list';
 import { startSpinner, stopSpinner } from './components/spinner';
 import { notificationError } from './components/notification';
 import { saveToLocalStorage, clearLocalStorage } from './utils/local-storage';
+import { scrollToTop, scrollToBottom } from './utils/scrolling-func';
 
 const eventApiService = new EventApiService();
 
@@ -27,6 +28,7 @@ function onSearchFormSubmit(e) {
     .getEventsByQuery()
     .then(data => {
       renderEventsList(data);
+      scrollToBottom();
       stopSpinner();
       saveToLocalStorage(data);
       return data;
@@ -41,6 +43,7 @@ function onSearchFormSubmit(e) {
         eventApiService.page = eventData.page - 1;
         eventApiService.getEventsByQuery().then(data => {
           renderEventsList(data);
+          scrollToTop();
           stopSpinner();
           clearLocalStorage();
           saveToLocalStorage(data);

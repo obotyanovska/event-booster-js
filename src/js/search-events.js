@@ -5,6 +5,7 @@ import { refs } from './utils/refs';
 import { renderEventsList } from './components/render-events-list';
 import { startSpinner, stopSpinner } from './components/spinner';
 import { notificationError } from './components/notification';
+import { saveToLocalStorage, clearLocalStorage } from './utils/local-storage';
 
 const eventApiService = new EventApiService();
 
@@ -15,15 +16,19 @@ function onSearchFormSubmit(e) {
 
   startSpinner();
 
-  const query = e.target.elements.search.value;
+  const query = e.currentTarget.elements.search.value;
   const normalizedQuery = query.toLowerCase().trim();
   eventApiService.searchQuery = normalizedQuery;
 
+  const countryCode = e.currentTarget.elements.country.value;
+  eventApiService.countryCode = countryCode;
+
   eventApiService
-    .getEventsByKeyWord()
+    .getEventsByQuery()
     .then(data => {
       renderEventsList(data);
       stopSpinner();
+      saveToLocalStorage(data);
       return data;
     })
     .then(data => {
@@ -34,17 +39,17 @@ function onSearchFormSubmit(e) {
       pagination.on('afterMove', function (eventData) {
         startSpinner();
         eventApiService.page = eventData.page - 1;
-        eventApiService.getEventsByKeyWord().then(data => {
+        eventApiService.getEventsByQuery().then(data => {
           renderEventsList(data);
           stopSpinner();
+          clearLocalStorage();
+          saveToLocalStorage(data);
         });
       });
     })
     .catch(error => {
-      notificationError('Error', `${error}`, '#ff2b3d');
+      notificationError('Error', `${error}`);
       stopSpinner();
-    });
-  //
-  // .finally(refs.searchForm.reset());
-  // });
+    })
+    .finally(refs.searchForm.reset());
 }

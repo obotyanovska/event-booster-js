@@ -1,7 +1,7 @@
-import modalTpl from './../../templates/modalTpl.hbs';
+import modalTpl from './../../templates/modal-tpl.hbs';
 import { refs } from './../utils/refs';
 
 export function renderModal(event) {
-  const modal = modalTpl(event[0]);
+  const modal = modalTpl(event);
   refs.backdrop.innerHTML = modal;
 }

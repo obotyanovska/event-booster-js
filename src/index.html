@@ -29,7 +29,8 @@
               <input class="search-form__input js-input" type="text" placeholder="Start searching" name="search" />             
             </label>
             <select class="search-form__countries selected-country js-select" name="country" placeholder="Choose country">
-              <option selected disabled>Choose country</option>
+              <option selected disabled value="">Choose country</option>
+              <option value="">All countries</option>
               <option value="US">United States Of America</option>
               <option value="AD">Andorra</option>
               <option value="AI">Anguilla</option>
@@ -127,6 +128,7 @@
 
       <main class="page-body " >
         <div class="page-body__container _container">
+
           <div class="wrap">
             <div class="glide">
               <div class="glide__track" data-glide-el="track">
@@ -151,24 +153,27 @@
             </div>
           </div>
           
-          <div class="header__category-filter category-filter">
+          <div class="page-body__category-filter category-filter">
             <ul class="category-filter__list">
               <li class="category-filter__item">
-                <button class="category-filter__btn">Arts&Theatre</button>
+                <button class="category-filter__btn" type="button" data-name="Arts&Theatre">Arts & Theatre</button>
               </li>
               <li class="category-filter__item">
-                <button class="category-filter__btn">Sports</button>
+                <button class="category-filter__btn" type="button" data-name="Sports">Sports</button>
               </li>
               <li class="category-filter__item">
-                <button class="category-filter__btn">Music</button>
+                <button class="category-filter__btn" type="button" data-name="Music">Music</button>
               </li>
               <li class="category-filter__item">
-                <button class="category-filter__btn">Miscellaneous</button>
+                <button class="category-filter__btn" type="button" data-name="Miscellaneous">Other</button>
               </li>
             </ul>
           </div>
-          <div class="page-body__container _container"></div>
+
+          <div class="page-body__events"></div>
+
           <div id="pagination" class="tui-pagination"></div>
+
           <footer class="footer">
             <div class="_container">
               <p class="footer__text">© 2021 | All Rights Reserved | Developed with ♥ </p>

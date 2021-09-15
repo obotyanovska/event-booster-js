@@ -1,9 +1,9 @@
 import EventApiService from './service/EventApiService';
 import Pagination from 'tui-pagination';
 import { options } from './components/pagination';
-import { refs } from './utils/refs';
 import { renderEventsList } from './components/render-events-list';
 import { startSpinner, stopSpinner } from './components/spinner';
+import { saveToLocalStorage, clearLocalStorage } from './utils/local-storage';
 
 const eventApiService = new EventApiService();
 
@@ -16,9 +16,7 @@ function startPageRender() {
     .then(data => {
       renderEventsList(data);
       stopSpinner();
-      // // console.log(data);
-      // console.log(data.map(item => item.classifications[0].segment.name));
-      // // console.log(data.map(item => item.classifications[0].segment.segmentId));
+      saveToLocalStorage(data);
       return data;
     })
     .then(data => {
@@ -32,11 +30,13 @@ function startPageRender() {
         eventApiService.getRandomEvents().then(data => {
           renderEventsList(data);
           stopSpinner();
+          clearLocalStorage();
+          saveToLocalStorage(data);
         });
       });
     })
     .catch(error => {
-      notificationError('Error', `${error}`, '#ff2b3d');
+      notificationError('Error', `${error}`);
       stopSpinner();
     });
 }

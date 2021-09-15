@@ -7,16 +7,17 @@ const eventApiService = new EventApiService();
 
 const glide = new Glide('.glide', {
   type: 'carousel',
-  perView: 4,
+  perView: 5,
   startAt: 0,
   autoplay: 4000,
   focusAt: 'center',
+  gap: 15,
   breakpoints: {
-    1199: {
+    1279: {
       perView: 3,
     },
     767: {
-      perView: 2,
+      perView: 1,
     },
   },
 });

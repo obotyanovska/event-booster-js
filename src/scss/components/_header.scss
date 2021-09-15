@@ -37,7 +37,7 @@
   }
 
   @include breakpoint(tablet) {
-    padding: 40px 0 123px 0;
+    padding: 40px 0 153px 0;
     background-image: linear-gradient(
         to top,
         rgba(13, 13, 13, 0),
@@ -72,7 +72,8 @@
   }
 
   @include breakpoint(desktop) {
-    padding: 40px 0 133px 0;
+    padding: 40px 0 183px 0;
+    background-position: center top;
     background-image: linear-gradient(
         to top,
         rgba(13, 13, 13, 0),
@@ -172,6 +173,6 @@
   }
 }
 
-// .header__search-form {
-//   display: flex;
-// }
+.header__search-form {
+  display: flex;
+}

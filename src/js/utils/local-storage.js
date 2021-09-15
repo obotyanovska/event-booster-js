@@ -7,11 +7,10 @@ const saveToLocalStorage = value => {
   }
 };
 
-const loadFromLocalStorage = key => {
+const loadFromLocalStorage = () => {
   try {
-    const serializedValue = localStorage.getItem(key);
-
-    return serializedState === null ? undefined : JSON.parse(serializedValue);
+    const serializedValue = localStorage.getItem('events');
+    return serializedValue === null ? undefined : JSON.parse(serializedValue);
   } catch (err) {
     console.error('Get state error: ', err);
   }

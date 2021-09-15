@@ -2,6 +2,7 @@ import EventApiService from './../service/EventApiService';
 import { refs } from './../utils/refs';
 import { renderModal } from './render-modal';
 import svg from './../../images/symbol-defs.svg';
+import { loadFromLocalStorage } from './../utils/local-storage';
 
 const eventApiService = new EventApiService();
 
@@ -13,16 +14,11 @@ function onEventOpenClick(e) {
   if (!e.target.closest('.js-event-card')) {
     return;
   }
-  eventApiService.id = e.target.closest('.js-event-card').dataset.id;
-
-  eventApiService
-    .getEventById()
-    .then(response => {
-      const event = response;
-      event[0].svg = svg;
-      return event;
-    })
-    .then(renderModal);
+  const id = e.target.closest('.js-event-card').dataset.id;
+  const savedEvents = loadFromLocalStorage();
+  const eventModal = savedEvents.find(evt => evt.id === id);
+  eventModal.svg = svg;
+  renderModal(eventModal);
   onModalOpen();
 }
 

@@ -37,29 +37,29 @@ export default class EventApiService {
       });
   }
 
-  getEventsByKeyWord() {
+  getEventsByQuery() {
     return this.goFetch(
-      `${BASE_URL}events.json?size=${this.size}&keyword=${this.searchQuery}&apikey=${API_KEY}`,
+      `${BASE_URL}events.json?page=${this.page}&size=${this.size}&keyword=${this.searchQuery}&countryCode=${this.countryCode}&apikey=${API_KEY}`,
     );
   }
 
   getRandomEvents() {
     return this.goFetch(
-      `${BASE_URL}events.json?size=${this.size}&page=${this.page}&sort=random&apikey=${API_KEY}`,
+      `${BASE_URL}events.json?&page=${this.page}&sort=random&apikey=${API_KEY}`,
     );
   }
 
-  getEventsByCountry() {
-    return this.goFetch(
-      `${BASE_URL}events.json?size=${this.size}&page=${this.page}&countryCode=${this.countryCode}&apikey=${API_KEY}`,
-    );
-  }
+  // getEventsByCountry() {
+  //   return this.goFetch(
+  //     `${BASE_URL}events.json?size=${this.size}&page=${this.page}&countryCode=${this.countryCode}&apikey=${API_KEY}`,
+  //   );
+  // }
 
-  getEventById() {
-    return this.goFetch(
-      `${BASE_URL}events.json?id=${this.id}&apikey=${API_KEY}`,
-    );
-  }
+  // getEventById() {
+  //   return this.goFetch(
+  //     `${BASE_URL}events.json?id=${this.id}&apikey=${API_KEY}`,
+  //   );
+  // }
 
   normalizeEventObj(obj) {
     const image = obj.images

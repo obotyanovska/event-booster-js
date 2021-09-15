@@ -7,6 +7,7 @@ import { startSpinner, stopSpinner } from './components/spinner';
 import { notificationError } from './components/notification';
 import { saveToLocalStorage, clearLocalStorage } from './utils/local-storage';
 import { scrollToTop, scrollToBottom } from './utils/scrolling-func';
+import renderNoResults from './components/render-no-results';
 
 const eventApiService = new EventApiService();
 
@@ -27,6 +28,11 @@ function onSearchFormSubmit(e) {
   eventApiService
     .getEventsByQuery()
     .then(data => {
+      if (data.length < 1) {
+        renderNoResults();
+        stopSpinner();
+        return;
+      }
       renderEventsList(data);
       scrollToBottom();
       stopSpinner();

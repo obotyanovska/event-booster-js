@@ -7,15 +7,23 @@
   justify-content: center;
   flex-wrap: wrap;
   margin: -10px;
+
+  @include breakpoint(non-tablet) {
+    margin: -6px;
+  }
 }
 
 .category-filter__item {
   margin: 10px;
+
+  @include breakpoint(non-tablet) {
+    margin: 6px;
+  }
 }
 
 .category-filter__btn {
-  min-width: 80px;
-  height: 40px;
+  min-width: 60px;
+  height: 35px;
   background-color: $input-bg;
   backdrop-filter: blur(20px);
   border-radius: 20px;

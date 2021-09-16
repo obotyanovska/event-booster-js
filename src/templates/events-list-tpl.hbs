@@ -6,7 +6,12 @@
     </div>
     <h2 class='event-card__title'>{{name}}</h2>
     <p class='event-card__date'>{{dates.start.localDate}}</p>
+    {{#if _embedded.venues}}
     <p class='event-card__location'>{{_embedded.venues.0.city.name}}, {{_embedded.venues.0.country.name}}</p>
+    {{else}}
+    <p class='event-card__location'>{{place.city.name}}, {{place.country.name}}</p>
+    {{/if}}
+    
   </li>
   {{/each}}
 </ul>

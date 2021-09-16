@@ -24,7 +24,6 @@ function onEventOpenClick(e) {
 }
 
 function onModalOpen(e) {
-  refs.body.classList.add('modal-open');
   refs.backdrop.classList.remove('is-hidden');
   scrollingModal();
   window.addEventListener('keydown', onEscapePress);
@@ -32,7 +31,6 @@ function onModalOpen(e) {
 
 function onModalClose(e) {
   refs.backdrop.classList.add('is-hidden');
-  refs.body.classList.remove('modal-open');
   window.removeEventListener('keydown', onEscapePress);
 }
 

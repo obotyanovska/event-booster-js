@@ -106,3 +106,22 @@
     }
   }
 }
+
+//animation for card
+.page-body__events-list {
+  perspective: 10000px;
+}
+
+.page-body__events-item {
+  transform: rotateY(0deg);
+  animation: rotateY 3000ms;
+}
+
+@keyframes rotateY {
+  0% {
+    transform: perspective(10000px) rotateY(-90deg);
+  }
+  100% {
+    transform: perspective(10000px) rotateY(0deg);
+  }
+}

@@ -14,13 +14,20 @@
         <img class="event-info__poster" src={{posterUrl}} alt={{name}} />
         <div class="event-info__description">
           {{#if description}}
-          <h3 class="event-info__title">INFO</h3>
-          <p class="event-info__text">{{description}}</p>
+            <h3 class="event-info__title">INFO</h3>
+            <p class="event-info__text">{{description}}</p>
           {{/if}}
-          <h3 class="event-info__title">WHEN</h3>
-          <p class="event-info__text">{{dates.start.localDate}}</br>{{dates.start.localTime}}</p>
-          <h3 class="event-info__title">WHERE </h3>
-          <p class="event-info__text">{{_embedded.venues.0.city.name}}, {{_embedded.venues.[0].country.name}}</br>{{_embedded.venues.[0].address.line1}}</p>
+            <h3 class="event-info__title">WHEN</h3>
+            <p class="event-info__text">{{dates.start.localDate}}</br>{{dates.start.localTime}}</p>
+            <h3 class="event-info__title">WHERE </h3>
+          {{#if _embedded.venues}}
+            <p class="event-info__text">{{_embedded.venues.0.city.name}},
+          {{_embedded.venues.[0].country.name}}</br>{{_embedded.venues.[0].address.line1}}</p>
+          {{else}}
+            <p class="event-info__text">{{place.city.name}},
+              {{place.country.name}}</br>{{place.address.line1}}</p>
+          {{/if}}
+          
           <h3 class="event-info__title">WHO</h3>
           <p class="event-info__text">{{name}}</p>
           <h3 class="event-info__title">PRICES</h3>

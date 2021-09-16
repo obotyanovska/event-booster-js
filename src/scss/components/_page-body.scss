@@ -38,7 +38,7 @@
   }
 
   @include breakpoint(desktop) {
-    padding: 13px 0 0 0;
+    padding: 33px 0 0 0;
     background-image: url(./../images/body/body-bcg-desktop.jpg);
 
     @media screen and (min-device-pixel-ratio: 2),

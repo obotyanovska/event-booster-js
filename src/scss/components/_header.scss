@@ -156,12 +156,23 @@
 }
 
 .header__heading {
+  position: relative;
   font-size: 18px;
   font-weight: 900;
   line-height: 1.2;
   text-transform: uppercase;
   text-align: center;
   color: $accent;
+  animation: appearFromTop 2500ms;
+
+  @keyframes appearFromTop {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 
   @include breakpoint(tablet) {
     max-width: 75%;

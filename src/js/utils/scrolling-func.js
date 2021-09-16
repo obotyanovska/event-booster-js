@@ -10,6 +10,6 @@ export const scrollToEventsPage = function () {
 export const scrollingModal = function () {
   refs.backdrop.scrollTo({
     top: 0,
-    behavior: 'smooth',
+    behavior: 'auto',
   });
 };

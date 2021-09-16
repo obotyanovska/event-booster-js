@@ -1,0 +1,37 @@
+.preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background: black;
+  z-index: 101;
+  opacity: 1;
+
+  .loader-is-hidden & {
+    transition: all 2000ms ease;
+    opacity: 0;
+  }
+
+  .loaded & {
+    display: none;
+  }
+}
+
+.preloader__img {
+  position: relative;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  text-align: center;
+
+  @include breakpoint(tablet) {
+    top: 58%;
+    width: 180px;
+    height: 180px;
+  }
+}

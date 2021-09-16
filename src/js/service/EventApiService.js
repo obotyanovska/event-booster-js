@@ -12,6 +12,7 @@ export default class EventApiService {
     this.totalElements = null;
     this.totalPages = null;
     this.id = null;
+    this.genreName = null;
   }
 
   goFetch(url) {
@@ -49,11 +50,11 @@ export default class EventApiService {
     );
   }
 
-  // getEventsByCountry() {
-  //   return this.goFetch(
-  //     `${BASE_URL}events.json?size=${this.size}&page=${this.page}&countryCode=${this.countryCode}&apikey=${API_KEY}`,
-  //   );
-  // }
+  getEventsByGenre() {
+    return this.goFetch(
+      `${BASE_URL}events.json?size=${this.size}&page=${this.page}&classificationName=${this.genreName}&apikey=${API_KEY}`,
+    );
+  }
 
   // getEventById() {
   //   return this.goFetch(
@@ -68,7 +69,6 @@ export default class EventApiService {
 
     obj.posterUrl = image[0];
 
-   
     return obj;
   }
 

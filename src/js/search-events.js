@@ -6,7 +6,7 @@ import { renderEventsList } from './components/render-events-list';
 import { startSpinner, stopSpinner } from './components/spinner';
 import { notificationError } from './components/notification';
 import { saveToLocalStorage, clearLocalStorage } from './utils/local-storage';
-import { scrollToTop, scrollToBottom } from './utils/scrolling-func';
+import { scrollToEventsPage } from './utils/scrolling-func';
 import renderNoResults from './components/render-no-results';
 
 const eventApiService = new EventApiService();
@@ -34,7 +34,7 @@ function onSearchFormSubmit(e) {
         return;
       }
       renderEventsList(data);
-      scrollToBottom();
+      scrollToEventsPage();
       stopSpinner();
       saveToLocalStorage(data);
       return data;
@@ -49,7 +49,7 @@ function onSearchFormSubmit(e) {
         eventApiService.page = eventData.page - 1;
         eventApiService.getEventsByQuery().then(data => {
           renderEventsList(data);
-          scrollToTop();
+          scrollToEventsPage();
           stopSpinner();
           clearLocalStorage();
           saveToLocalStorage(data);

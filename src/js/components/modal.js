@@ -3,6 +3,7 @@ import { refs } from './../utils/refs';
 import { renderModal } from './render-modal';
 import svg from './../../images/symbol-defs.svg';
 import { loadFromLocalStorage } from './../utils/local-storage';
+import { scrollingModal } from './../utils/scrolling-func';
 
 const eventApiService = new EventApiService();
 
@@ -23,9 +24,9 @@ function onEventOpenClick(e) {
 }
 
 function onModalOpen(e) {
-  refs.backdrop.classList.remove('is-hidden');
-  scrollToTop();
   refs.body.classList.add('modal-open');
+  refs.backdrop.classList.remove('is-hidden');
+  scrollingModal();
   window.addEventListener('keydown', onEscapePress);
 }
 

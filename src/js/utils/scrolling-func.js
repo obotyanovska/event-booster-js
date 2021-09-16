@@ -1,13 +1,15 @@
-export const scrollToTop = function () {
+import { refs } from './refs';
+
+export const scrollToEventsPage = function () {
   window.scrollTo({
     top: 700,
     behavior: 'smooth',
   });
 };
 
-export const scrollToBottom = function () {
-  window.scrollTo({
-    top: 700,
+export const scrollingModal = function () {
+  refs.backdrop.scrollTo({
+    top: 0,
     behavior: 'smooth',
   });
 };

@@ -45,7 +45,7 @@ export default class EventApiService {
 
   getRandomEvents() {
     return this.goFetch(
-      `${BASE_URL}events.json?&page=${this.page}&sort=random&apikey=${API_KEY}`,
+      `${BASE_URL}events.json?page=${this.page}&size=${this.size}&sort=random&apikey=${API_KEY}`,
     );
   }
 
@@ -67,6 +67,8 @@ export default class EventApiService {
       .map(image => image.url);
 
     obj.posterUrl = image[0];
+
+   
     return obj;
   }
 

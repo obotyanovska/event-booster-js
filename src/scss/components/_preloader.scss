@@ -28,10 +28,4 @@
   height: 100px;
   object-fit: contain;
   text-align: center;
-
-  @include breakpoint(tablet) {
-    top: 58%;
-    width: 180px;
-    height: 180px;
-  }
 }

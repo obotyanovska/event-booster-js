@@ -1,6 +1,5 @@
 import EventApiService from './service/EventApiService';
-import Pagination from 'tui-pagination';
-import { options } from './components/pagination';
+import { pagination } from './components/pagination';
 import { renderEventsList } from './components/render-events-list';
 import { startSpinner, stopSpinner } from './components/spinner';
 import { saveToLocalStorage, clearLocalStorage } from './utils/local-storage';
@@ -8,8 +7,11 @@ import { scrollToEventsPage } from './utils/scrolling-func';
 
 const eventApiService = new EventApiService();
 
+window.addEventListener('DOMContentLoaded', startPageRender);
+
 function startPageRender() {
   startSpinner();
+
   eventApiService
     .getRandomEvents()
     .then(data => {
@@ -18,8 +20,7 @@ function startPageRender() {
       saveToLocalStorage(data);
       return data;
     })
-    .then(data => {
-      const pagination = new Pagination('pagination', options);
+    .then(() => {
       const totalItems = eventApiService.totalElements;
       pagination.reset(totalItems);
 
@@ -28,17 +29,15 @@ function startPageRender() {
         eventApiService.page = eventData.page - 1;
         eventApiService.getRandomEvents().then(data => {
           renderEventsList(data);
-          scrollToEventsPage();
           stopSpinner();
+          scrollToEventsPage();
           clearLocalStorage();
           saveToLocalStorage(data);
         });
       });
     })
-    .catch(error => {
+    .catch(() => {
       notificationError();
       stopSpinner();
     });
 }
-
-window.addEventListener('DOMContentLoaded', startPageRender);

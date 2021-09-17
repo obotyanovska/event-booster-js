@@ -2,7 +2,7 @@ import { refs } from './refs';
 
 export const scrollToEventsPage = function () {
   window.scrollTo({
-    top: 700,
+    top: 705,
     behavior: 'smooth',
   });
 };

@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $('body').append(
-    '<a href="#" id="go-top" title="Вверх"><div class="go-top-arrow"></div></a>',
+    '<a href="#" id="go-top" title="Up"><div class="go-top-arrow"></div></a>',
   );
 });
 

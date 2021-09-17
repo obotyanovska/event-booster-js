@@ -8,8 +8,6 @@ import { scrollToEventsPage } from './utils/scrolling-func';
 
 const eventApiService = new EventApiService();
 
-window.addEventListener('DOMContentLoaded', startPageRender);
-
 function startPageRender() {
   startSpinner();
   eventApiService
@@ -38,7 +36,9 @@ function startPageRender() {
       });
     })
     .catch(error => {
-      notificationError('Error', `${error}`);
+      notificationError();
       stopSpinner();
     });
 }
+
+window.addEventListener('DOMContentLoaded', startPageRender);

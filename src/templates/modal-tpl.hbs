@@ -8,10 +8,10 @@
 
     <div class="modal__container event-info">
       <div class="event-info__label">
-        <img class="event-info__img" src={{posterUrl}} alt={{name}} />
+        <img class="event-info__img" src={{posterUrl}} alt={{name}} width="132" height="132"/>
       </div>
       <div class="event-info__content">
-        <img class="event-info__poster" src={{posterUrl}} alt={{name}} />
+        <img class="event-info__poster" src={{posterUrl}} alt={{name}} width="360" height="641"/>
         <div class="event-info__description">
           {{#if description}}
             <h3 class="event-info__title">INFO</h3>
@@ -32,7 +32,7 @@
           <p class="event-info__text">{{name}}</p>
           <h3 class="event-info__title">PRICES</h3>
           <div class="event-info__price">
-            <svg class="event-info__icon-barcode" width="24" height="16">
+            <svg class="event-info__icon-barcode" width="24" height="16" aria-label="Image of barcode">
               <use href="{{svg}}#icon-barcode"></use>
             </svg>
             {{#if priceRanges}}

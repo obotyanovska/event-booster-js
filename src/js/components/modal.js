@@ -1,11 +1,8 @@
-import EventApiService from './../service/EventApiService';
 import { refs } from './../utils/refs';
 import { renderModal } from './render-modal';
 import svg from './../../images/symbol-defs.svg';
 import { loadFromLocalStorage } from './../utils/local-storage';
 import { scrollingModal } from './../utils/scrolling-func';
-
-const eventApiService = new EventApiService();
 
 refs.pageBodyEvents.addEventListener('click', onEventOpenClick);
 refs.backdrop.addEventListener('click', onBtnClose);

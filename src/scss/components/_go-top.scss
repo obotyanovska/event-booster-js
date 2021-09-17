@@ -2,11 +2,6 @@
   position: fixed;
   bottom: 45px;
   right: 30px;
-  @include breakpoint(tablet) {
-    bottom: 32px;
-    right: 60px;
-  }
-
   cursor: pointer;
   display: none;
   width: 50px;
@@ -14,11 +9,18 @@
   background-color: transparent;
   border-radius: 50%;
   border: 2px solid $accent;
+
+  @include breakpoint(tablet) {
+    bottom: 32px;
+    right: 60px;
+  }
+
   &:hover {
     -webkit-box-shadow: 0px 0px 5px 4px rgba(220, 86, 197, 0.5);
     -moz-box-shadow: 0px 0px 5px 4px rgba(220, 86, 197, 0.5);
     box-shadow: 0px 0px 5px 4px rgba(220, 86, 197, 0.5);
   }
+
   &:before,
   &:after {
     content: '';
@@ -31,6 +33,7 @@
     border-bottom: 2px solid $accent;
     animation: arrow 2s linear infinite;
   }
+
   &:after {
     animation: arrow 2s linear infinite -1s;
   }

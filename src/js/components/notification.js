@@ -1,13 +1,10 @@
 import 'izitoast/dist/css/iziToast.min.css';
 import iziToast from 'izitoast/dist/js/iziToast.min.js';
 
-export function notificationError(
-  title = 'OOPS!',
-  message = 'No results found. Please, enter a new request.',
-) {
+export function notificationError() {
   iziToast.show({
-    title,
-    message,
+    title: 'OOPS!',
+    message: 'Something went wrong. Please try again.',
     messageSize: '14px',
     theme: 'dark',
     color: '#DC56C5',

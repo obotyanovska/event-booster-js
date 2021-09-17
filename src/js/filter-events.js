@@ -53,7 +53,7 @@ function onFilterClick(e) {
       });
     })
     .catch(error => {
-      notificationError('Error', `${error}`);
+      notificationError();
       stopSpinner();
     })
     .finally(refs.searchForm.reset());

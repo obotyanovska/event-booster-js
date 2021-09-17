@@ -31,6 +31,7 @@ function onSearchFormSubmit(e) {
       if (data.length < 1) {
         renderNoResults();
         stopSpinner();
+        scrollToEventsPage();
         return;
       }
       renderEventsList(data);
@@ -57,7 +58,7 @@ function onSearchFormSubmit(e) {
       });
     })
     .catch(error => {
-      notificationError('Error', `${error}`);
+      notificationError();
       stopSpinner();
     })
     .finally(refs.searchForm.reset());

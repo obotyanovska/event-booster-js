@@ -163,9 +163,7 @@
   text-transform: uppercase;
   text-align: center;
   color: $accent;
-  animation-name: appearFromTop;
-  animation-duration: 2500ms;
-  animation-delay: 1000ms;
+  animation: appearFromTop 2500ms;
 
   @keyframes appearFromTop {
     0% {

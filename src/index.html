@@ -14,14 +14,14 @@
 
   <body>
     <div class="preloader">
-      <img class="preloader__img" src="./images/logo-loader.png" alt="logo" />
+      <img class="preloader__img" src="./images/logo-loader.png" alt="logo" width="180" height="180"/>
     </div>
 
     <div class="body-wrapper">
       <header class="header">
         <div class="header__container _container">
-          <a class="header__logo" href="./index.html">
-            <svg class="header__logo-icon" width="60" height="30">
+          <a class="header__logo" href="./index.html" aria-label="Logo. Click to update page">
+            <svg class="header__logo-icon" width="60" height="30" >
               <use href="./images/symbol-defs.svg#icon-logo"/>
             </svg>
           </a>
@@ -30,7 +30,7 @@
           
           <form class="header__search-form search-form js-form" autocomplete="off">
             <label class="search-form__label">
-              <input class="search-form__input js-input" type="text" placeholder="Start searching" name="search" />             
+              <input class="search-form__input js-input" type="text" placeholder="Enter keyword for search" name="search" />             
             </label>
             <select class="search-form__countries selected-country js-select" name="country" placeholder="Choose country">
               <option selected disabled value="">Choose country</option>
@@ -160,12 +160,12 @@
                 </ul>
               </div>
               <div class="glide__arrows" data-glide-el="controls">
-                <button class="glide__btn glide__arrow glide__arrow--left back" data-glide-dir="<">prev
+                <button class="glide__btn glide__arrow glide__arrow--left back" data-glide-dir="<" aria-label="Button to show previous image">prev
                   <svg class="glide__btn-icon" width="15" height="15">
                     <use href="./images/symbol-defs.svg#icon_arrow_back" />
                   </svg>
                 </button>
-                <button class="glide__btn glide__arrow glide__arrow--right forward" data-glide-dir=">">next
+                <button class="glide__btn glide__arrow glide__arrow--right forward" data-glide-dir=">" aria-label="Button to show next image">next
                   <svg class="glide__btn-icon" width="15" height="15">
                     <use href="./images/symbol-defs.svg#icon_arrow_forward" />
                   </svg>

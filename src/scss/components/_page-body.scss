@@ -38,7 +38,7 @@
   }
 
   @include breakpoint(desktop) {
-    padding: 33px 0 0 0;
+    padding: 63px 0 0 0;
     background-image: url(./../images/body/body-bcg-desktop.jpg);
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -52,6 +52,12 @@
       screen and (min-resolution: 3dppx) {
       background-image: url(./../images/body/body-bcg-desktop@3x.jpg);
     }
+  }
+}
+
+.page-body__events {
+  @include breakpoint(non-tablet) {
+    padding: 80px 0 0 0;
   }
 }
 

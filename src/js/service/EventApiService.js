@@ -1,7 +1,7 @@
 import { notificationError } from '../components/notification';
 
 const API_KEY = 'soKuDyMtrw2ZES78RDbbnvyZwVVeZjGa';
-const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/';
+const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events.json';
 
 export default class EventApiService {
   constructor() {
@@ -18,9 +18,6 @@ export default class EventApiService {
   goFetch(url) {
     return fetch(url)
       .then(response => {
-        // if (!response.ok) {
-        //   throw new Error();
-        // }
         return response.json();
       })
       .then(({ page, _embedded }) => {
@@ -40,27 +37,21 @@ export default class EventApiService {
 
   getEventsByQuery() {
     return this.goFetch(
-      `${BASE_URL}events.json?page=${this.page}&size=${this.size}&keyword=${this.searchQuery}&countryCode=${this.countryCode}&apikey=${API_KEY}`,
+      `${BASE_URL}?keyword=${this.searchQuery}&page=${this.page}&size=${this.size}&countryCode=${this.countryCode}&apikey=${API_KEY}`,
     );
   }
 
   getRandomEvents() {
     return this.goFetch(
-      `${BASE_URL}events.json?page=${this.page}&size=${this.size}&sort=random&apikey=${API_KEY}`,
+      `${BASE_URL}?sort=random&page=${this.page}&size=${this.size}&apikey=${API_KEY}`,
     );
   }
 
   getEventsByGenre() {
     return this.goFetch(
-      `${BASE_URL}events.json?size=${this.size}&page=${this.page}&classificationName=${this.genreName}&apikey=${API_KEY}`,
+      `${BASE_URL}?classificationName=${this.genreName}&page=${this.page}&size=${this.size}&apikey=${API_KEY}`,
     );
   }
-
-  // getEventById() {
-  //   return this.goFetch(
-  //     `${BASE_URL}events.json?id=${this.id}&apikey=${API_KEY}`,
-  //   );
-  // }
 
   normalizeEventObj(obj) {
     const image = obj.images
@@ -70,6 +61,10 @@ export default class EventApiService {
     obj.posterUrl = image[0];
 
     return obj;
+  }
+
+  resetPage() {
+    this.page = 0;
   }
 
   get query() {

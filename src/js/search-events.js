@@ -1,6 +1,7 @@
 import EventApiService from './service/EventApiService';
 import { normalizeText } from './utils/normalize-text-func';
-import { pagination } from './components/pagination';
+import Pagination from 'tui-pagination';
+import { options, clearPagination } from './components/pagination';
 import { refs } from './utils/refs';
 import { renderEventsList } from './components/render-events-list';
 import { startSpinner, stopSpinner } from './components/spinner';
@@ -22,6 +23,7 @@ function onSearchFormSubmit(e) {
   eventApiService.searchQuery = normalizeText(query);
   const countryCode = e.currentTarget.elements.country.value;
   eventApiService.countryCode = countryCode;
+  eventApiService.resetPage();
 
   eventApiService
     .getEventsByQuery()
@@ -39,16 +41,17 @@ function onSearchFormSubmit(e) {
       return data;
     })
     .then(() => {
+      const pagination = new Pagination('pagination', options);
       const totalItems = eventApiService.totalElements;
       pagination.reset(totalItems);
 
       pagination.on('afterMove', function (eventData) {
         startSpinner();
         eventApiService.page = eventData.page - 1;
-        eventApiService.getEventsByQuery().then(data => {
+        eventApiService.getRandomEvents().then(data => {
           renderEventsList(data);
-          scrollToEventsPage();
           stopSpinner();
+          scrollToEventsPage();
           clearLocalStorage();
           saveToLocalStorage(data);
         });

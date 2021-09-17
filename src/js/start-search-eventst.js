@@ -1,5 +1,6 @@
 import EventApiService from './service/EventApiService';
-import { pagination } from './components/pagination';
+import Pagination from 'tui-pagination';
+import { options } from './components/pagination';
 import { renderEventsList } from './components/render-events-list';
 import { startSpinner, stopSpinner } from './components/spinner';
 import { saveToLocalStorage, clearLocalStorage } from './utils/local-storage';
@@ -21,6 +22,7 @@ function startPageRender() {
       return data;
     })
     .then(() => {
+      const pagination = new Pagination('pagination', options);
       const totalItems = eventApiService.totalElements;
       pagination.reset(totalItems);
 

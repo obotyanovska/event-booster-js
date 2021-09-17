@@ -11,7 +11,7 @@ export const refs = {
   spinner: document.querySelector('.loader-spinner'),
 
   slider: document.querySelector('.glide__slides'),
-  categoryFilter: document.querySelector('.category-filter'),
+  categoryFilter: document.querySelector('.filter'),
   paginationContainer: document.querySelector('#pagination'),
 
   body: document.querySelector('body'),

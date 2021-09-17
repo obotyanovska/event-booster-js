@@ -1,14 +1,45 @@
-import EventApiService from './service/EventApiService';
-import { pagination } from './components/pagination';
+import { option, clearPagination } from './components/pagination';
 import { refs } from './utils/refs';
 import { renderEventsList } from './components/render-events-list';
-import { startSpinner, stopSpinner } from './components/spinner';
-import { notificationError } from './components/notification';
-import { saveToLocalStorage, clearLocalStorage } from './utils/local-storage';
+import { loadFromLocalStorage } from './utils/local-storage';
 import renderNoResults from './components/render-no-results';
-import { scrollToEventsPage } from './utils/scrolling-func';
+import gsap from 'gsap';
 
-const eventApiService = new EventApiService();
+// animation menu filter
+var card = document.getElementById('activator');
+var tl = gsap.timeline({ defaults: { ease: 'power2.inOut' } });
+
+var toggle = false;
+
+tl.to('.activator', {
+  background: '#dc56c5',
+  borderRadius: '50% 0 0 50%',
+});
+tl.to(
+  'nav',
+  {
+    clipPath: 'ellipse(100% 100% at 50% 50%)',
+  },
+  '-=.5',
+);
+tl.to(
+  'nav button',
+  {
+    opacity: 1,
+    transform: 'translateX(0)',
+    stagger: 0.05,
+  },
+  '-=.5',
+);
+tl.pause();
+
+card.addEventListener('click', () => {
+  toggle = !toggle;
+  if (toggle ? tl.play() : tl.reverse());
+});
+
+// filtering logic
+
 refs.categoryFilter.addEventListener('click', onFilterClick);
 
 function onFilterClick(e) {
@@ -16,97 +47,21 @@ function onFilterClick(e) {
     return;
   }
 
-  startSpinner();
+  const filter = e.target.dataset.name;
+  const savedEvents = loadFromLocalStorage();
 
-  eventApiService.genreName = e.target.dataset.name;
+  const filteredEvents =
+    filter === 'All'
+      ? savedEvents
+      : savedEvents.filter(
+          event =>
+            event.classifications !== undefined &&
+            event.classifications[0].segment.name === filter,
+        );
 
-  eventApiService
-    .getEventsByGenre()
-    .then(data => {
-      if (data.length < 1) {
-        renderNoResults();
-        stopSpinner();
-        return;
-      }
-      renderEventsList(data);
-      scrollToEventsPage();
-      stopSpinner();
-      saveToLocalStorage(data);
-      return data;
-    })
-    .then(data => {
-      const totalItems = eventApiService.totalElements;
-      pagination.reset(totalItems);
-
-      pagination.on('afterMove', function (eventData) {
-        startSpinner();
-        eventApiService.page = eventData.page - 1;
-        eventApiService.getEventsByGenre().then(data => {
-          renderEventsList(data);
-          scrollToEventsPage();
-          stopSpinner();
-          clearLocalStorage();
-          saveToLocalStorage(data);
-        });
-      });
-    })
-    .catch(error => {
-      notificationError();
-      stopSpinner();
-    })
-    .finally(refs.searchForm.reset());
+  if (filteredEvents.length < 1) {
+    renderNoResults();
+    return;
+  }
+  renderEventsList(filteredEvents);
 }
-
-// const filter = e.target.dataset.name;
-// const savedEvents = loadFromLocalStorage();
-
-// const filteredEvents =
-//   filter === 'All'
-//     ? savedEvents
-//     : savedEvents.filter(
-//         event =>
-//           event.classifications !== undefined &&
-//           event.classifications[0].segment.name === filter,
-//       );
-
-// if (filteredEvents.length < 1) {
-//   renderNoResults();
-//   return;
-// }
-// renderEventsList(filteredEvents);
-
-// console.log(filteredEvents);
-// const searchCountry = e.target.value;
-// eventApiService.countryCode = searchCountry;
-
-// startSpinner();
-
-// eventApiService
-//   .getEventsByCountry()
-//   .then(data => {
-//     renderEventsList(data);
-//     stopSpinner();
-//     saveToLocalStorage(data);
-//     return data;
-//   })
-//   .then(data => {
-//     const pagination = new Pagination('pagination', options);
-//     const totalItems = eventApiService.totalElements;
-//     pagination.reset(totalItems);
-
-//     pagination.on('afterMove', function (eventData) {
-//       startSpinner();
-//       eventApiService.page = eventData.page - 1;
-//       eventApiService.getEventsByCountry().then(data => {
-//         renderEventsList(data);
-//         stopSpinner();
-//         clearLocalStorage();
-//         saveToLocalStorage(data);
-//       });
-//     });
-//   })
-//   .catch(error => {
-//     notificationError('Error', `${error}`);
-//     stopSpinner();
-//   });
-// }

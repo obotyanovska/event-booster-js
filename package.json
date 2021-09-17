@@ -51,6 +51,7 @@
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
     "core-js": "^3.6.5",
+    "gsap": "^3.7.1",
     "handlebars": "^4.7.6",
     "izitoast": "^1.4.0",
     "modern-normalize": "^1.1.0",

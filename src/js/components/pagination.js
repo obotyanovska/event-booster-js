@@ -1,10 +1,6 @@
-import Pagination from 'tui-pagination';
-import EventApiService from '../service/EventApiService';
 import { refs } from './../utils/refs';
 
-const container = document.getElementById('pagination');
-
-const options = {
+export const options = {
   totalItems: 10,
   itemsPerPage: 20,
   visiblePages: 5,
@@ -31,8 +27,6 @@ const options = {
   },
 };
 
-export const pagination = new Pagination(container, options);
-
-export const deletePagination = function () {
-  refs.paginationContainer.innerHTML = '';
+export const clearPagination = function () {
+  refs.paginationRef.innerHTML = '';
 };

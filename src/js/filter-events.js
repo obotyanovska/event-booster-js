@@ -59,6 +59,23 @@ function onFilterClick(e) {
             event.classifications[0].segment.name === filter,
         );
 
+  if (
+    (filter === 'Arts & Theatre' ||
+      filter === 'Sports' ||
+      filter === 'Music' ||
+      filter === 'Miscellaneous') &&
+    !refs.paginationContainer.classList.contains('visually-hidden')
+  ) {
+    refs.paginationContainer.classList.add('visually-hidden');
+  }
+
+  if (
+    filter === 'All' &&
+    refs.paginationContainer.classList.contains('visually-hidden')
+  ) {
+    refs.paginationContainer.classList.remove('visually-hidden');
+  }
+
   if (filteredEvents.length < 1) {
     renderNoResults();
     return;

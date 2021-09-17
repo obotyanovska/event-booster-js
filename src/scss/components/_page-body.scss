@@ -56,6 +56,7 @@
 }
 
 .page-body__events {
+  padding: 0 0 60px 0;
   @include breakpoint(non-tablet) {
     padding: 80px 0 0 0;
   }

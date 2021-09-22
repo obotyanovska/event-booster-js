@@ -15,4 +15,5 @@ export const refs = {
   paginationContainer: document.querySelector('#pagination'),
 
   body: document.querySelector('body'),
+  lazyImages: document.querySelectorAll('img[data-src]'),
 };

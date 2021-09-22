@@ -2,7 +2,13 @@
   {{#each this}}  
   <li class='page-body__events-item event-card js-event-card' data-id={{id}}>
     <div class='event-card__thumb'>
-      <img class='event-card__img' src={{posterUrl}} alt={{name}} width="180" height="277"/>
+      <img 
+      loading="lazy"
+      class='event-card__img lazyload' 
+      data-src={{posterUrl}} 
+      alt={{name}} 
+      width="180" 
+      height="277"/>
     </div>
     <h2 class='event-card__title'>{{name}}</h2>
     <p class='event-card__date'>{{dates.start.localDate}}</p>

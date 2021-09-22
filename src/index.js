@@ -9,5 +9,5 @@ import './js/filter-events';
 
 import './js/components/modal';
 import './js/components/go-top';
-// import './js/compsonents/parallax';
+import './js/components/parallax';
 import './js/utils/lazy-sizes';

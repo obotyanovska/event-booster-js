@@ -15,6 +15,7 @@ The single page application was created for easy search of events around the wor
 - lazy sizes
 - adaptive web design
 - Flexbox and Grids
+- Webpack
 - some libraries and plugins (GSAP, slider Glide.js, notifications Izitoast, spinner Spin.js, parallax, ets, )
 
 #### You can see the application: <a href="https://obotyanovska.github.io/event-booster-js/" >Event Booster </a>

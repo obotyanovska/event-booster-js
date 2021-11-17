@@ -4,6 +4,9 @@ The single page application was created for easy search of events around the wor
 
 ### I used in this project:
 
+- HTML
+- SCSS
+- JavaScript
 - AJAX
 - requests REST API
 - templating Handlebars

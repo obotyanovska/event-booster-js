@@ -11,6 +11,7 @@ The single page application was created for easy search of events around the wor
 - pagination
 - lazy sizes
 - adaptive web design
+- Flexbox and Grids
 - some libraries and plugins (GSAP, slider Glide.js, notifications Izitoast, spinner Spin.js, parallax, ets, )
 
 #### You can see the application: 
